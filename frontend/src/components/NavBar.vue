@@ -1,16 +1,22 @@
 <template>
   <nav class="navbar">
     <div class="container navbar-inner">
-      <RouterLink to="/" class="brand">📢 社群媒體</RouterLink>
+      <RouterLink to="/" class="brand">Easy Say簡易社群軟體</RouterLink>
 
       <div class="nav-actions">
         <template v-if="authStore.isLoggedIn">
           <span class="user-name">{{ authStore.userName }}</span>
-          <button class="btn btn-secondary btn-sm" @click="handleLogout">登出</button>
+          <button class="btn btn-secondary btn-sm" @click="handleLogout">
+            登出
+          </button>
         </template>
         <template v-else>
-          <RouterLink to="/login"    class="btn btn-secondary btn-sm">登入</RouterLink>
-          <RouterLink to="/register" class="btn btn-primary btn-sm">註冊</RouterLink>
+          <RouterLink to="/login" class="btn btn-secondary btn-sm"
+            >登入</RouterLink
+          >
+          <RouterLink to="/register" class="btn btn-primary btn-sm"
+            >註冊</RouterLink
+          >
         </template>
       </div>
     </div>
@@ -18,15 +24,15 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
 
-const router    = useRouter()
-const authStore = useAuthStore()
+const router = useRouter();
+const authStore = useAuthStore();
 
 function handleLogout() {
-  authStore.logout()
-  router.push({ name: 'Login' })
+  authStore.logout();
+  router.push({ name: "Login" });
 }
 </script>
 
